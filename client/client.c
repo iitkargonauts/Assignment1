@@ -90,5 +90,14 @@ int main(){
     fclose(image);
   }
 
+  char com[50]="./web.sh ";
+  char n_images[50];
+  tostring(n_images,dogs+cats+cars+trucks);
+  strcat(com,n_images);
+  char f[20]=" > index.html";
+  strcat(com,f);
+  system(com);
+  system("firefox index.html");
+
   return 0;
 }
