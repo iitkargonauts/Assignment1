@@ -120,12 +120,12 @@ int main(int argc, char const *argv[])
       fseek(picture, 0, SEEK_SET);
       tostring(buffer,size);
       send(new_socket,buffer,1024,0);
-      // printf("Sending Picture Size=%d\n",size);
+      printf("Sending Picture Size=%d\n",size);
       //Send Picture as Byte Array
-      // printf("Sending Picture as Byte Array\n");
-      char send_buffer=(char)(malloc(size*sizeof(char)));
+      printf("Sending Picture as Byte Array\n");
+      char* send_buffer=(char*)(malloc(size*sizeof(char)));
       fread(send_buffer, 1, size, picture);
-      // printf("Size of send_buffer = %d\n",size );
+      printf("Size of send_buffer = %d\n",size );
       send(new_socket,send_buffer,size,0);
       bzero(send_buffer, sizeof(send_buffer));
 

@@ -4,16 +4,7 @@
 #include <netinet/in.h>
 #include <string.h>
 #define PORT 25250
-#define SERVER_IP "172.18.0.2"
-
-
-
-#include <stdio.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <string.h>
-#include <arpa/inet.h>
-#include <stdlib.h>
+#define SERVER_IP "172.23.145.160"
 
 void tostring(char str[], int num)
 {
@@ -92,10 +83,10 @@ int main(int argc, char const *argv[])
 
   for(int i=1;i<=dogs+cats+cars+trucks;i++){
     int size;
-    recv(sock, buffer, 1024, 0);
+    read(sock, buffer, 1024);
     size=atoi(buffer);
-    // printf("Picture Size=%d\n",size);
-    char recv_buffer=(char)(malloc(size*sizeof(char)));
+    printf("Picture Size=%d\n",size);
+    char* recv_buffer=(char*)(malloc(size*sizeof(char)));
     // printf("Reading Picture Byte Array\n");
     // printf("Converting Byte Array to Picture\n");
     FILE *image;
@@ -106,7 +97,7 @@ int main(int argc, char const *argv[])
     image = fopen(name, "w");
     //recv(sock, recv_buffer, size, 0);
     read(sock, recv_buffer, size);
-    // printf("Size of recv_buffer = %ld\n",sizeof(recv_buffer) );
+    printf("Size of recv_buffer = %ld\n",sizeof(recv_buffer) );
     fwrite(recv_buffer,  1,size, image);
     fclose(image);
   }
