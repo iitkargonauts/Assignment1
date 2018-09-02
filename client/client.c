@@ -74,10 +74,10 @@ int main(){
     int size;
     recv(clientSocket, buffer, 1024, 0);
     size=atoi(buffer);
-    printf("Picture Size=%d\n",size);
+    // printf("Picture Size=%d\n",size);
     char *recv_buffer=(char*)(malloc(size*sizeof(char)));
-    printf("Reading Picture Byte Array\n");
-    printf("Converting Byte Array to Picture\n");
+    // printf("Reading Picture Byte Array\n");
+    // printf("Converting Byte Array to Picture\n");
     FILE *image;
     char name[20];
     tostring(name,i);
@@ -85,7 +85,7 @@ int main(){
     strcat(name,jp);
     image = fopen(name, "w");
     recv(clientSocket, recv_buffer, size, 0);
-    printf("Size of recv_buffer = %ld\n",sizeof(recv_buffer) );
+    // printf("Size of recv_buffer = %ld\n",sizeof(recv_buffer) );
     fwrite(recv_buffer,  1,size, image);
     fclose(image);
   }
