@@ -120,6 +120,7 @@ int main(int argc, char const *argv[])
 			send(new_socket,send_buffer,size,0);
 			bzero(send_buffer, sizeof(send_buffer));
 			free(send_buffer);
+			fclose(picture);
 
 		}
 	}
