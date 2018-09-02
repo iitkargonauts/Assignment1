@@ -196,7 +196,6 @@ cat <<- _EOF_
   </html>
 _EOF_
 
-firefox index.html
 
 
 ### use  ./web.sh $number_of_images > file.html

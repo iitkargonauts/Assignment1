@@ -89,6 +89,10 @@ int main(int argc, char const *argv[])
 	// char ct[]="cats/";
 	// char cr[]="cars/";
 	// char t[]="trucks/";
+	
+	if(dogs < 0 || dogs > 4 || cats <0 || cats > 4 || trucks <0 || trucks >4 || cars <0 || cars >4){
+		printf("One of the inputs out of bounds, exiting\n");
+	}
 
 
 	for(int i=0;i<4;i++){
