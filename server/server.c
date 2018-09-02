@@ -94,9 +94,9 @@ int main(){
       strcpy(final,location);
       strcat(final,index[j]);
       strcat(final,jp);
-      printf("%s\n", final);     
+      // printf("%s\n", final);     
 
-      printf("Getting Picture Size\n");
+      // printf("Getting Picture Size\n");
       FILE *picture;
       picture = fopen(final, "r");
       int size;
@@ -105,12 +105,12 @@ int main(){
       fseek(picture, 0, SEEK_SET);
       tostring(buffer,size);
       send(newSocket,buffer,1024,0);
-      printf("Sending Picture Size=%d\n",size);
+      // printf("Sending Picture Size=%d\n",size);
       //Send Picture as Byte Array
-      printf("Sending Picture as Byte Array\n");
+      // printf("Sending Picture as Byte Array\n");
       char *send_buffer=(char*)(malloc(size*sizeof(char)));
       fread(send_buffer, 1, size, picture);
-      printf("Size of send_buffer = %d\n",size );
+      // printf("Size of send_buffer = %d\n",size );
       send(newSocket,send_buffer,size,0);
       bzero(send_buffer, sizeof(send_buffer));
 
