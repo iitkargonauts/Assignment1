@@ -1,10 +1,11 @@
 #!/bin/bash
 
-my=$( ls | grep -c .jpg)
-my=$1
-system_info()
+####bash script for displaying webpage
+##my=$( ls | grep -c .jpg)
+my=$1                 ##takes argument
+system_info()            ##user defined function
 {
-    case $my in
+    case $my in                ## switch case key
       0)
       echo "<p> No images </P>"
       ;;
