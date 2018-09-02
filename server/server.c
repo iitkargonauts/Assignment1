@@ -6,15 +6,6 @@
 #include <string.h>
 #define PORT 25250
 
-
-
-#include <stdio.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <string.h>
-#include <arpa/inet.h>
-#include <stdlib.h>
-
 void tostring(char str[], int num)
 {
 	int i, rem, len = 0, n;
@@ -128,6 +119,7 @@ int main(int argc, char const *argv[])
 			printf("Size of send_buffer = %d\n",size );
 			send(new_socket,send_buffer,size,0);
 			bzero(send_buffer, sizeof(send_buffer));
+			free(send_buffer);
 
 		}
 	}
