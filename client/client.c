@@ -4,7 +4,7 @@
 #include <netinet/in.h>
 #include <string.h>
 #define PORT 25250
-#define SERVER_IP "172.23.145.160"
+#define SERVER_IP "172.18.0.2"
 
 void tostring(char str[], int num)
 {
@@ -31,7 +31,7 @@ int main(int argc, char const *argv[])
     int sock = 0, valread;
     struct sockaddr_in serv_addr;
     char *hello = "Hello from client";
-    char buffer[1024] = {0};
+    char buffer[1000] = {0};
     if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0)
     {
         printf("\n Socket creation error \n");
@@ -100,6 +100,7 @@ int main(int argc, char const *argv[])
     printf("Size of recv_buffer = %ld\n",sizeof(recv_buffer) );
     fwrite(recv_buffer,  1,size, image);
     fclose(image);
+    free(recv_buffer);
   }
 
   char com[50]="./web.sh ";
