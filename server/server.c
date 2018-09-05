@@ -33,6 +33,7 @@ int main(int argc, char const *argv[])
 	int opt = 1;
 	int addrlen = sizeof(address);
 	char buffer[1024] = {0};
+	char useless[1024];
 	char *hello = "Hello from server";
 
 	// Creating socket file descriptor
@@ -122,6 +123,7 @@ int main(int argc, char const *argv[])
 			fread(send_buffer, 1, size, picture);
 			printf("Size of send_buffer = %d\n",size );
 			send(new_socket,send_buffer,size,0);
+			read(new_socket, useless, 1024);
 			bzero(send_buffer, sizeof(send_buffer));
 			free(send_buffer);
 			fclose(picture);

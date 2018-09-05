@@ -37,6 +37,7 @@ int main(int argc, char const *argv[])
 {
     struct sockaddr_in address;
     int sock = 0, valread;
+    char useless[1024]="I am useless. Just to synchronise";
     struct sockaddr_in serv_addr;
     char *hello = "Hello from client";
     char buffer[1000] = {0};
@@ -163,6 +164,7 @@ int main(int argc, char const *argv[])
     // printf("Size of recv_buffer = %ld\n",sizeof(recv_buffer) );
     fwrite(recv_buffer,  1,size, image);
     fclose(image);
+    send(sock,useless,1024,0);  
     free(recv_buffer);
   }
 
@@ -176,7 +178,7 @@ int main(int argc, char const *argv[])
   strcat(com,f);
   system(com);
 	
-
+  system("firefox index.html");
 
 
 
