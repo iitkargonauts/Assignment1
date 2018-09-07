@@ -1,6 +1,6 @@
 FROM gcc:latest
 COPY . /code
 WORKDIR /code
-EXPOSE 25250
+EXPOSE 5555
 RUN gcc -w server.c -o ser
-CMD ["./ser"]
+CMD ["./ser", "0.0.0.0", "5555"]
