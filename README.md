@@ -7,17 +7,12 @@ build server image
 
 
 Run docker server
-`docker run cs252/server:v1 --name cs252_server`i
-
-Get docker server IP :
-`docker inspect bbf2c8c5d3a6 | grep \"IPAddress\"  | tr -s ' ' | uniq | cut -d ':' -f 2 | tr -d '", '`
-
-Change IP in client.c 
+`docker run -p  5555:5555 cs252/server:v1`
 
 build client from c file
 `cd ./client && gcc client.c -o cli.out`
 
 Run client
-`./cli.out`
+`./cli.out 0.0.0.0 5555`
 
 Submit your query :)
